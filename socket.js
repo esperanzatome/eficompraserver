@@ -6,7 +6,7 @@ const initSocket = (server) => {
     // Configuración de CORS
     const ioOptions = {
         cors: {
-            origin: 'http://localhost:3000', // Permitir el origen de tu cliente
+            origin: ['http://localhost:3000','https://eficompra.vercel.app/'], // Permitir el origen de tu cliente
             methods: ['GET', 'POST'],
             allowedHeaders: ['Content-Type', 'Authorization'],
             credentials: true // Permitir el uso de cookies o encabezados de autorización
