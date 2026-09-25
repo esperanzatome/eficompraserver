@@ -11,7 +11,7 @@ try {
         user: process.env.DBUSER,
         password: process.env.DBPASS,
         database: process.env.DBNAME,
-        port:process.env.PORT,
+        port:process.env.DBPORT,
         connectTimeout: 30000,
     });
 } catch (error) {
