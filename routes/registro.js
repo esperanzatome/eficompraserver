@@ -67,7 +67,7 @@ const postRegistro = (request, response) => {
                 );
 
             } else {
-                
+                const filasAfectadas = results && results.affectedRows ? results.affectedRows : 1;
                 const mailOptions = {
                     from: process.env.EMAIL, 
                     to: [email], 
