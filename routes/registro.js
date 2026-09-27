@@ -39,7 +39,7 @@ const postRegistro = (request, response) => {
                             return response.status(500).json({ error: "Error interno del servidor" });
                         }
 
-                        const usuarioExistente = selectResults;
+                        const usuarioExistente = selectResults[0];
                         const passwordReal = usuarioExistente.password;
                         const aliasReal = usuarioExistente.alias;
 
