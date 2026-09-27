@@ -25,7 +25,7 @@ const postRegistro = (request, response) => {
         [id, email, password, alias],
         (error, results) => {
           
-            if (error) {
+            if (error.response && error.response.status === 409) {
                 console.log("Error en la inserción (Usuario ya existe):", error.sqlMessage);
                 
                
