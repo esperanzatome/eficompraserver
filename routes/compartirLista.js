@@ -12,7 +12,7 @@ const postRecuperarUserData = (request, response) => {
      
     
     const {listasdelacompra} = request.body;
-    connection.query("SELECT * FROM `compraeficiente`.`usuario` WHERE listasdelacompra= ? ",
+    connection.query("SELECT * FROM usuario WHERE listasdelacompra= ? ",
        
         [listasdelacompra],
         (error, results) => {
