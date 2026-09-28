@@ -12,7 +12,7 @@ const postUserCompraLists = (request, response) => {
      
     
     const {userId} = request.body;
-        connection.query(" SELECT * FROM compraeficiente.usuario WHERE userId=?", 
+        connection.query(" SELECT * FROM usuario WHERE userId=?", 
         [userId],
         (error, results) => {
             
