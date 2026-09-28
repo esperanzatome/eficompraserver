@@ -31,7 +31,7 @@ const postRegistro = (request, response) => {
                             return response.status(500).json({ error: "Error interno del servidor" });
                         }
 
-                        const usuarioExistente = selectResults;
+                        const usuarioExistente = selectResults[0];
                         const passwordReal = usuarioExistente.password;
                         const aliasReal = usuarioExistente.alias;
 
@@ -56,8 +56,9 @@ const postRegistro = (request, response) => {
                         }
 
                         return response.status(409).json({
-                            "El usuario ya está registrado": cleanEmail,
-                            "error": "usuario existente"
+                            error: "usuario existente",
+                            mensaje: "El usuario ya está registrado. Se ha enviado un correo con tu contraseña.",
+                            email: cleanEmail
                         });
                     }
                 );
