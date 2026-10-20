@@ -13,7 +13,7 @@ const {connection} = require("../config.db");
 
 const updateRegistro = (req,resp) =>{
     const {id} =req.body
-     connection.query("UPDATE compraeficiente.registro SET privileges = 0 WHERE id=?; ", 
+     connection.query("UPDATE registro SET privileges = 0 WHERE id=?; ", 
         [id],
         (error, results) => {
              if (error) {
