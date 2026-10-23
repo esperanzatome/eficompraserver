@@ -5,21 +5,20 @@ const http = require("http");
 const PORT = process.env.PORT || 10000;
 const app = express();
 const { initSocket } = require('./socket'); 
-
 app.use((req, res, next) => {
 
   res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Credentials', 'false'); 
 
+ 
   if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+    return res.sendStatus(200); 
   }
 
   next();
 });
-app.options('*', cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 const server = http.createServer(app);
