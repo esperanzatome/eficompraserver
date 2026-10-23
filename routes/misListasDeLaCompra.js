@@ -5,14 +5,14 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-//conexión con la base de datos
+
 const {connection} = require("../config.db");
 
 const postCompraList = (request, response) => {
      
     
     const {listaId,userId} = request.body;
-      //  connection.query("INSERT IGNORE usuario (id,listasdelacompra,comprado) VALUES (?,?,?) ", 
+   
       connection.query("INSERT listasnuevas (listaId,userId) VALUES (?,?) ", 
       [listaId,userId],
         (error, results) => {
@@ -67,17 +67,27 @@ const actualizarEstadoLista=(request,response)=>{
         (error, results) => {
             
             if(error){
-                
+                  console.error("Error en la base de datos al hacer PATCH:", error);
+            
+                return response.status(500).json({ 
+                    success: false, 
+                    message: "Error interno en la base de datos", 
+                    details: error.message 
+                });
                 
              
-           console.log(error)
+          
             }
             
                  
             else{
                 
                
-                response.status(201).json(results)
+          return response.status(200).json({ 
+                success: true, 
+                message: "Estado de la lista actualizado", 
+                results: results 
+            });
         
             }}
     )
