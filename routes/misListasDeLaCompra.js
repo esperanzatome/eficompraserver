@@ -62,7 +62,7 @@ app.route("/misListasDeLaCompra")
 .get(getCompraList);
 const actualizarEstadoLista=(request,response)=>{
     const {comprado,listasdelacompra}=request.body;
-    connection.query("UPDATE compraeficiente.usuario SET comprado=? WHERE listasdelacompra=?",
+    connection.query("UPDATE usuario SET comprado=? WHERE listasdelacompra=?",
         [comprado,listasdelacompra],
         (error, results) => {
             
