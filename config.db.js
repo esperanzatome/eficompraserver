@@ -14,7 +14,11 @@ try {
     port: process.env.PORT,
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
+        ssl: {
+    minVersion: 'TLSv1.2',
+    rejectUnauthorized: true
+  }
     });
 } catch (error) {
     console.log("Error al conectar con la base de datos");
