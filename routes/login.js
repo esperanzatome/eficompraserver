@@ -30,7 +30,7 @@ const postLogin = (request, response) => {
                 
   
                        const token = jwt.sign(
-      { id: usuario.Object.values(response.data)[0][0].id, email: usuario.Object.values(response.data)[0][0].email },
+      { id: Object.values(response.data)[0][0].id, email: Object.values(response.data)[0][0].email },
       process.env.JWT_SECRET,
       { expiresIn: '24h' }
     );
