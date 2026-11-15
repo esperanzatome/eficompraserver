@@ -27,10 +27,17 @@ const postLogin = (request, response) => {
             
                  
             else{
-                console.log(response, results)
+                
   
-                response.status(201).json({"El usuario existe": results})
-        
+                       const token = jwt.sign(
+      { id: usuario.Object.values(response.data)[0][0].id, email: usuario.Object.values(response.data)[0][0].email },
+      process.env.JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+ response.status(201).json({"El usuario existe": results,
+                           token:token})
+
+  
             }})};
 //ruta
 app.route("/login")
