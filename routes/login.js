@@ -27,8 +27,10 @@ const postLogin = (request, response) => {
             
                  
             else{
-                
-  
+  console.log(results)
+                 console.log(results.id)
+                 console.log(results[0].id)
+  /*
                        const token = jwt.sign(
       { id: (response.data)[0][0].id, email: (response.data)[0][0].email },
       process.env.JWT_SECRET,
@@ -36,7 +38,7 @@ const postLogin = (request, response) => {
     );
  response.status(201).json({"El usuario existe": results,
                            token:token})
-
+*/
   
             }})};
 //ruta
