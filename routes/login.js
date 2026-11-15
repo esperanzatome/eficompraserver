@@ -28,11 +28,11 @@ const postLogin = (request, response) => {
                  
             else{
   console.log(results)
-                 console.log(results.id)
+                 console.log(results[0].id)
                  
   
                        const token = jwt.sign(
-      { id: results.id, email:email },
+      { id: results[0].id, email:email },
       process.env.JWT_SECRET,
       { expiresIn: '24h' }
     );
