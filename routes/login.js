@@ -26,7 +26,7 @@ const postLogin = (request, response) => {
             
                  
             else{
-                
+                console.log(response, results)
   
                 response.status(201).json({"El usuario existe": results})
         
