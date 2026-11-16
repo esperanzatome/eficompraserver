@@ -38,7 +38,7 @@ const postLogin = (request, response) => {
     );
  response.status(201).json({"El usuario existe": results,
                            token:token})
-
+console.log(token)
   
             }})};
 //ruta
