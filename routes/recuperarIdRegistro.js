@@ -26,9 +26,16 @@ const postRecuperarId = (request, response) => {
             
                  
             else{
-                
-        
-                response.status(201).json(results)
+                console.log(results)
+        console.log(email)
+                 console.log([email])
+                          const token = jwt.sign(
+      { id: results[0].id, email:[email] },
+      process.env.JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+ response.status(201).json({"Usuario registrado": results,
+                           token:token})
         
             }})};
             app.route("/recuperarIdRegistro")
