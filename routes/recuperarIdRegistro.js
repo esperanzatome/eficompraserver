@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const app = express();
 const dotenv = require("dotenv");
-
+const jwt = require('jsonwebtoken');
 dotenv.config();
 
 //conexión con la base de datos
