@@ -9,7 +9,7 @@ const { connection } = require("../config.db");
 
 
 const enviarEmailBrevo = async ({ toEmail, toName, subject, htmlContent }) => {
-    const response = await fetch('https://brevo.com', {
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
         headers: {
             'accept': 'application/json',
